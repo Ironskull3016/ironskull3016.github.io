@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Lucid Army | Office of Anomalous Intelligence</title>
 
   <style>
@@ -10,11 +11,15 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
-      background: #f4f6f8;
-      color: #1b1f23;
+      background: #f5f6f7;
+      color: #1f2933;
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -22,259 +27,110 @@
       min-height: 100vh;
     }
 
-    .topbar {
-      background: #1f2937;
-      color: #ffffff;
-      padding: 10px 16px;
-      font-size: 12px;
-      line-height: 1.4;
-      border-bottom: 3px solid #c7ced6;
+    a {
+      color: #1f4f82;
+      text-decoration: underline;
     }
 
-    .topbar-inner {
-      max-width: 980px;
+    a:hover {
+      color: #12365c;
+    }
+
+    .notice-bar {
+      background: #eef2f5;
+      border-bottom: 1px solid #cfd7df;
+      color: #334155;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .notice-inner {
+      max-width: 1080px;
       margin: 0 auto;
+      padding: 8px 16px;
       display: flex;
       justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
     }
 
-    .site-wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 16px 32px;
+    .header {
+      background: #ffffff;
+      border-bottom: 1px solid #cfd7df;
     }
 
-    .agency-header {
+    .header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 22px 0 18px;
-      border-bottom: 1px solid #d7dde3;
-      background: #ffffff;
+      min-width: 0;
     }
 
-    .agency-seal {
-      width: 62px;
-      height: 62px;
+    .seal {
+      width: 58px;
+      height: 58px;
       object-fit: contain;
-      background: #ffffff;
-      border: 1px solid #d7dde3;
       border-radius: 50%;
+      border: 1px solid #d7dde3;
+      background: #ffffff;
       padding: 4px;
       flex-shrink: 0;
     }
 
-    .agency-text h1 {
+    .brand h1 {
       margin: 0;
       font-size: 28px;
+      line-height: 1.05;
       color: #111827;
-      line-height: 1.1;
+      font-weight: 700;
     }
 
-    .agency-text p {
+    .brand p {
       margin: 5px 0 0;
-      color: #4b5563;
-      font-size: 14px;
-    }
-
-    .page-card {
-      background: #ffffff;
-      border: 1px solid #d7dde3;
-      padding: 22px 18px;
-      margin-top: 18px;
-    }
-
-    .section-kicker {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 10px;
-      background: #e9eef3;
-      color: #334155;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      border: 1px solid #d7dde3;
-    }
-
-    .page-card h2 {
-      margin: 0 0 10px;
-      font-size: 24px;
-      line-height: 1.2;
-      color: #111827;
-    }
-
-    .page-card p {
-      margin: 0;
-      color: #4b5563;
-      font-size: 15px;
-      line-height: 1.65;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .info-box {
-      background: #ffffff;
-      border: 1px solid #d7dde3;
-      padding: 18px;
-      min-height: 170px;
-    }
-
-    .info-box h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-      color: #111827;
-    }
-
-    .info-box p {
-      margin: 0;
       font-size: 14px;
       color: #4b5563;
-      line-height: 1.6;
     }
 
-    .small-note {
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px solid #e3e8ee;
-      color: #6b7280;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .doc-trigger-wrap {
-      margin-top: 20px;
-      text-align: left;
-    }
-
-    .doc-trigger {
-      display: inline-block;
-      font-size: 12px;
-      color: #6b7280;
-      text-decoration: none;
-      border-bottom: 1px dotted #9ca3af;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .doc-trigger:hover,
-    .doc-trigger:focus {
-      color: #374151;
-      border-bottom-color: #374151;
-      outline: none;
-    }
-
-    .footer {
-      margin-top: 22px;
-      padding: 18px 0 0;
-      border-top: 1px solid #d7dde3;
-      color: #6b7280;
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.5);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      z-index: 999;
-    }
-
-    .modal-overlay.active {
+    .site-search {
       display: flex;
+      gap: 8px;
+      width: 310px;
+      max-width: 100%;
     }
 
-    .modal-box {
-      width: 100%;
-      max-width: 460px;
+    .search-input {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 10px;
+      border: 1px solid #b8c2cc;
       background: #ffffff;
-      border: 1px solid #cfd7df;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
-      overflow: hidden;
-    }
-
-    .modal-header {
-      background: #1f2937;
-      color: #ffffff;
-      padding: 14px 16px;
       font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-    }
-
-    .modal-body {
-      padding: 18px 16px 20px;
-    }
-
-    .modal-body h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-      color: #111827;
-      line-height: 1.2;
-    }
-
-    .modal-body p {
-      margin: 0 0 16px;
-      color: #4b5563;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .form-label {
-      display: block;
-      margin: 12px 0 6px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #334155;
-    }
-
-    .text-input {
-      width: 100%;
-      padding: 12px 12px;
-      border: 1px solid #cfd7df;
-      font-size: 16px;
-      color: #111827;
-      background: #ffffff;
       border-radius: 0;
     }
 
-    .text-input:focus {
-      outline: none;
-      border-color: #64748b;
-      box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.14);
-    }
-
-    .button-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
-      flex-wrap: wrap;
-    }
-
+    .search-button,
     .btn {
-      appearance: none;
       border: 1px solid #1f2937;
       background: #1f2937;
       color: #ffffff;
-      padding: 12px 14px;
+      padding: 10px 14px;
       font-size: 14px;
       font-weight: 700;
       cursor: pointer;
-      min-height: 46px;
-      flex: 1 1 auto;
+      border-radius: 0;
     }
 
+    .search-button:hover,
     .btn:hover {
       background: #111827;
     }
@@ -288,7 +144,284 @@
       background: #f8fafc;
     }
 
+    .nav {
+      background: #243142;
+      border-bottom: 3px solid #aeb8c2;
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 14px;
+      font-size: 14px;
+      border-right: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .nav a:first-child {
+      border-left: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .nav a:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 22px 16px 36px;
+    }
+
+    .search-result {
+      display: none;
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      background: #fff8e6;
+      border: 1px solid #e3c870;
+      color: #4b3b0b;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .search-result.active {
+      display: block;
+    }
+
+    .hero,
+    .section {
+      background: #ffffff;
+      border: 1px solid #cfd7df;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .hero {
+      padding: 22px;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 9px;
+      background: #eef2f5;
+      border: 1px solid #d7dde3;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .hero h2,
+    .section h2 {
+      margin: 0 0 10px;
+      color: #111827;
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .hero p,
+    .section p,
+    .card p,
+    .resource-note {
+      margin: 0;
+      color: #4b5563;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      border: 1px solid #d7dde3;
+      background: #ffffff;
+      padding: 16px;
+      min-height: 150px;
+    }
+
+    .card h3 {
+      margin: 0 0 9px;
+      color: #111827;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .card-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #1f4f82;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .card-link:hover {
+      color: #12365c;
+    }
+
+    .resource-list {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0;
+      border-top: 1px solid #e3e8ee;
+    }
+
+    .resource-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #e3e8ee;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .resource-list span {
+      display: block;
+      color: #6b7280;
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .metadata {
+      margin-top: 18px;
+      padding: 14px;
+      background: #f8fafc;
+      border: 1px solid #d7dde3;
+      color: #6b7280;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .page-id {
+      color: #6b7280;
+      border-bottom: 1px dotted #9ca3af;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .page-id:hover,
+    .page-id:focus {
+      color: #374151;
+      border-bottom-color: #374151;
+      outline: none;
+    }
+
+    .footer {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid #cfd7df;
+      color: #6b7280;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      background: rgba(15, 23, 42, 0.52);
+      z-index: 999;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 470px;
+      background: #ffffff;
+      border: 1px solid #cfd7df;
+      box-shadow: 0 20px 55px rgba(0,0,0,0.24);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      background: #243142;
+      color: #ffffff;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .modal-body {
+      padding: 18px 16px 20px;
+    }
+
+    .modal-body h3 {
+      margin: 0 0 8px;
+      color: #111827;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .modal-body p {
+      margin: 0 0 16px;
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #b8c2cc;
+      background: #ffffff;
+      color: #111827;
+      font-size: 16px;
+      border-radius: 0;
+    }
+
+    .text-input:focus,
+    .search-input:focus {
+      outline: none;
+      border-color: #64748b;
+      box-shadow: 0 0 0 3px rgba(100,116,139,0.14);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .button-row .btn {
+      flex: 1 1 auto;
+      min-height: 46px;
+    }
+
     .status-box {
+      display: none;
       margin-top: 16px;
       padding: 12px;
       border: 1px solid #d7dde3;
@@ -296,6 +429,10 @@
       color: #334155;
       font-size: 13px;
       line-height: 1.6;
+    }
+
+    .status-box.active {
+      display: block;
     }
 
     .status-line {
@@ -307,7 +444,7 @@
     }
 
     .denied-box {
-      margin-top: 16px;
+      margin-top: 14px;
       padding: 14px;
       border: 1px solid #d7dde3;
       background: #f8fafc;
@@ -315,9 +452,9 @@
 
     .denied-title {
       margin: 0 0 8px;
-      font-size: 18px;
       color: #991b1b;
-      line-height: 1.2;
+      font-size: 18px;
+      line-height: 1.25;
     }
 
     .denied-text {
@@ -335,131 +472,258 @@
 
     .hal-section h4 {
       margin: 0 0 8px;
-      font-size: 16px;
       color: #111827;
+      font-size: 16px;
     }
 
     .hal-result {
       margin-top: 10px;
-      font-size: 13px;
-      color: #991b1b;
-      line-height: 1.5;
       min-height: 20px;
+      color: #991b1b;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
     .hidden {
       display: none;
     }
 
-    @media (max-width: 768px) {
-      .agency-header {
+    @media (max-width: 820px) {
+      .notice-inner {
+        display: block;
+      }
+
+      .notice-inner div + div {
+        margin-top: 3px;
+      }
+
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand {
         align-items: flex-start;
       }
 
-      .agency-text h1 {
-        font-size: 24px;
+      .brand h1 {
+        font-size: 25px;
       }
 
-      .grid {
+      .site-search {
+        width: 100%;
+      }
+
+      .nav-inner {
+        padding: 0;
+      }
+
+      .nav a {
+        flex: 1 1 50%;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        border-left: 0;
+        border-right: 1px solid rgba(255,255,255,0.12);
+      }
+
+      .nav a:first-child {
+        border-left: 0;
+      }
+
+      .hero,
+      .section {
+        padding: 18px 16px;
+      }
+
+      .two-column,
+      .cards {
         grid-template-columns: 1fr;
-      }
-
-      .page-card h2 {
-        font-size: 22px;
-      }
-
-      .modal-box {
-        max-width: 100%;
       }
 
       .button-row {
         flex-direction: column;
       }
 
+      .button-row .btn,
       .btn {
         width: 100%;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div>Official Government Information Portal</div>
-      <div>Public Access Node</div>
+  <div class="notice-bar">
+    <div class="notice-inner">
+      <div>Public Information Interface</div>
+      <div>Lucid Army // Office of Anomalous Intelligence</div>
     </div>
   </div>
 
-  <div class="site-wrap">
-    <div class="agency-header">
-      <img src="IMG_1890.png" alt="Lucid Army Seal" class="agency-seal" />
-      <div class="agency-text">
-        <h1>Lucid Army</h1>
-        <p>Office of Anomalous Intelligence</p>
+  <header class="header" id="home">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="IMG_1890.png" alt="Lucid Army Seal" class="seal" />
+        <div>
+          <h1>Lucid Army</h1>
+          <p>Office of Anomalous Intelligence</p>
+        </div>
       </div>
+
+      <form class="site-search" id="siteSearch">
+        <input class="search-input" id="searchInput" type="search" placeholder="Search public records" />
+        <button class="search-button" type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#home">Home</a>
+      <a href="#notices">Notices</a>
+      <a href="#records">Records</a>
+      <a href="#inquiry">Inquiry</a>
+      <a href="#resources">Resources</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div class="search-result" id="searchResult">
+      No public records matched this query. Some materials may be unavailable through the public interface.
     </div>
 
-    <div class="page-card">
-      <div class="section-kicker">Public Records & Civilian Information Portal</div>
+    <section class="hero">
+      <span class="kicker">Public Records & Civilian Information Portal</span>
       <h2>Public Notice</h2>
       <p>
         This portal provides limited civilian-facing access to administrative notices,
         archive status updates, and approved public registry information made available
         by the Office of Anomalous Intelligence.
       </p>
+    </section>
 
-      <div class="small-note">
-        Information presented through this interface is provided for general public awareness.
-        Access to sealed records, restricted archives, and operator-only registries requires
-        additional authorization.
-      </div>
-    </div>
-
-    <div class="grid">
-      <div class="info-box">
-        <h3>Archive Status</h3>
-        <p>
-          Public archive materials remain limited. Select administrative records and notices
-          may be reviewed through approved public channels as available.
-        </p>
-      </div>
-
-      <div class="info-box">
-        <h3>Civilian Registry</h3>
-        <p>
-          Civilian-facing registry tools are currently restricted. Certain indexed records
-          may be unavailable pending review, validation, or internal classification status.
-        </p>
-      </div>
-
-      <div class="info-box">
-        <h3>Records Request</h3>
-        <p>
-          Requests for access to protected materials must be submitted through authorized
-          channels and are subject to administrative review and applicable restrictions.
-        </p>
-      </div>
-    </div>
-
-    <div class="page-card">
-      <div class="section-kicker">Administrative Information</div>
-      <h2>Access Conditions</h2>
+    <section class="section" id="notices">
+      <span class="kicker">Current Information</span>
+      <h2>Public Notices</h2>
       <p>
-        Use of this portal constitutes acknowledgment that public-facing information may be
-        incomplete, revised without notice, or unavailable due to operational and administrative
-        limitations. Unauthorized access to restricted systems is prohibited.
+        Public notices are provided for general awareness and may include administrative
+        updates, archive availability summaries, and changes to public-facing reference access.
       </p>
 
-      <div class="doc-trigger-wrap">
-        <span class="doc-trigger" id="docTrigger">Document ID: LA-OAI-07</span>
+      <div class="cards">
+        <div class="card">
+          <h3>Archive Availability</h3>
+          <p>
+            Select public records remain available for review. Restricted materials are
+            not accessible through this interface.
+          </p>
+          <span class="card-link" data-message="Archive availability notices are currently limited to public summaries.">View notice</span>
+        </div>
+
+        <div class="card">
+          <h3>Interface Maintenance</h3>
+          <p>
+            Public access tools may be unavailable during scheduled administrative review
+            or system maintenance periods.
+          </p>
+          <span class="card-link" data-message="No active maintenance notices are available at this time.">View notice</span>
+        </div>
+
+        <div class="card">
+          <h3>Registry Limitations</h3>
+          <p>
+            Registry information shown through public channels may be incomplete, delayed,
+            or withheld based on classification status.
+          </p>
+          <span class="card-link" data-message="Registry access remains limited through the public information interface.">View notice</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section two-column" id="records">
+      <div>
+        <span class="kicker">Records & Reference</span>
+        <h2>Public Reference Materials</h2>
+        <p>
+          Public reference materials may include document indexes, administrative summaries,
+          historical release notes, and general archive descriptions cleared for civilian review.
+        </p>
       </div>
 
-      <div class="footer">
-        Office of Anomalous Intelligence<br>
-        External Information Interface // Public Access Mirror
+      <div>
+        <span class="kicker">Access Status</span>
+        <h2>Restricted Materials</h2>
+        <p>
+          Sealed records, operator registries, and restricted archive materials require
+          validated credentials and are not available through the public-facing portal.
+        </p>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <section class="section" id="inquiry">
+      <span class="kicker">Public Inquiry</span>
+      <h2>Submitting a Public Inquiry</h2>
+      <p>
+        General inquiries may be reviewed through authorized channels. Requests involving
+        sealed materials, registry validation, or protected archive references may be delayed,
+        denied, or redirected based on internal review conditions.
+      </p>
+
+      <div class="metadata">
+        <div>Review cycle: Standard administrative review</div>
+        <div>Public access classification: Limited</div>
+        <div>Last reviewed: 06/2026</div>
+        <div>Page ID: <span class="page-id" id="pageId" tabindex="0">LA-OAI-07</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <span class="kicker">External Public Resources</span>
+      <h2>Reference Links</h2>
+      <p class="resource-note">
+        External links are provided for public reference only. Inclusion does not indicate
+        affiliation, endorsement, sponsorship, or operational relationship.
+      </p>
+
+      <ul class="resource-list">
+        <li>
+          <a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a>
+          <span>General information and services from the United States government.</span>
+        </li>
+
+        <li>
+          <a href="https://www.archives.gov/" target="_blank" rel="noopener noreferrer">National Archives</a>
+          <span>Public access to historical records and federal archival resources.</span>
+        </li>
+
+        <li>
+          <a href="https://www.foia.gov/" target="_blank" rel="noopener noreferrer">FOIA.gov</a>
+          <span>Public information about Freedom of Information Act requests.</span>
+        </li>
+
+        <li>
+          <a href="https://www.cia.gov/readingroom/" target="_blank" rel="noopener noreferrer">CIA FOIA Electronic Reading Room</a>
+          <span>Publicly released CIA records and declassified materials.</span>
+        </li>
+
+        <li>
+          <a href="https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/freedom-of-informationprivacy-act" target="_blank" rel="noopener noreferrer">FBI FOIPA Information</a>
+          <span>Public information about FBI Freedom of Information and Privacy Act requests.</span>
+        </li>
+
+        <li>
+          <a href="https://www.intelligence.gov/" target="_blank" rel="noopener noreferrer">Intelligence.gov</a>
+          <span>Public information about the United States Intelligence Community.</span>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      Lucid Army // Office of Anomalous Intelligence<br>
+      External Information Interface // Public Access Mirror<br>
+      This independent public-facing page is fictional and provided for entertainment purposes.
+    </footer>
+  </main>
 
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-box">
@@ -473,10 +737,10 @@
             validated credentials.
           </p>
 
-          <label class="form-label" for="operatorId">Operator ID</label>
+          <label for="operatorId">Operator ID</label>
           <input class="text-input" id="operatorId" type="text" autocomplete="off" placeholder="Enter Operator ID" />
 
-          <label class="form-label" for="accessCode">Access Code</label>
+          <label for="accessCode">Access Code</label>
           <input class="text-input" id="accessCode" type="password" autocomplete="off" placeholder="Enter Access Code" />
 
           <div class="button-row">
@@ -484,7 +748,7 @@
             <button class="btn btn-secondary" id="closeModalBtn" type="button">Close</button>
           </div>
 
-          <div class="status-box hidden" id="statusBox">
+          <div class="status-box" id="statusBox">
             <div class="status-line" id="statusLine1"></div>
             <div class="status-line" id="statusLine2"></div>
             <div class="status-line" id="statusLine3"></div>
@@ -509,7 +773,7 @@
               Enter H.A.L. Number to request restricted registry validation.
             </p>
 
-            <label class="form-label" for="halNumber">Enter H.A.L. Number</label>
+            <label for="halNumber">Enter H.A.L. Number</label>
             <input class="text-input" id="halNumber" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter H.A.L. Number" />
 
             <div class="button-row">
@@ -525,7 +789,12 @@
   </div>
 
   <script>
-    const docTrigger = document.getElementById("docTrigger");
+    const siteSearch = document.getElementById("siteSearch");
+    const searchInput = document.getElementById("searchInput");
+    const searchResult = document.getElementById("searchResult");
+    const cardLinks = document.querySelectorAll(".card-link");
+
+    const pageId = document.getElementById("pageId");
     const modalOverlay = document.getElementById("modalOverlay");
     const closeModalBtn = document.getElementById("closeModalBtn");
     const disconnectBtn = document.getElementById("disconnectBtn");
@@ -540,8 +809,34 @@
     const statusLine3 = document.getElementById("statusLine3");
 
     const trackBtn = document.getElementById("trackBtn");
-    const halResult = document.getElementById("halResult");
     const halNumber = document.getElementById("halNumber");
+    const halResult = document.getElementById("halResult");
+
+    function showSearchMessage(message) {
+      searchResult.textContent = message;
+      searchResult.classList.add("active");
+      searchResult.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    siteSearch.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const query = searchInput.value.trim();
+
+      if (!query) {
+        showSearchMessage("Enter a search term to query public records.");
+        return;
+      }
+
+      showSearchMessage("No public records matched this query. Some materials may be unavailable through the public interface.");
+    });
+
+    cardLinks.forEach(function(link) {
+      link.addEventListener("click", function() {
+        const message = link.getAttribute("data-message");
+        showSearchMessage(message);
+      });
+    });
 
     function openModal() {
       modalOverlay.classList.add("active");
@@ -555,27 +850,35 @@
     function resetModal() {
       loginStage.classList.remove("hidden");
       deniedStage.classList.add("hidden");
-      statusBox.classList.add("hidden");
+
+      statusBox.classList.remove("active");
       statusLine1.textContent = "";
       statusLine2.textContent = "";
       statusLine3.textContent = "";
-      halResult.textContent = "";
+
       document.getElementById("operatorId").value = "";
       document.getElementById("accessCode").value = "";
+
       if (halNumber) {
         halNumber.value = "";
       }
+
+      halResult.textContent = "";
       authenticateBtn.disabled = false;
       authenticateBtn.textContent = "Authenticate";
     }
 
-    docTrigger.addEventListener("click", openModal);
+    pageId.addEventListener("click", openModal);
+
+    pageId.addEventListener("keydown", function(event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openModal();
+      }
+    });
 
     closeModalBtn.addEventListener("click", closeModal);
-
-    if (disconnectBtn) {
-      disconnectBtn.addEventListener("click", closeModal);
-    }
+    disconnectBtn.addEventListener("click", closeModal);
 
     modalOverlay.addEventListener("click", function(event) {
       if (event.target === modalOverlay) {
@@ -592,26 +895,26 @@
     authenticateBtn.addEventListener("click", function() {
       authenticateBtn.disabled = true;
       authenticateBtn.textContent = "Authenticating...";
-      statusBox.classList.remove("hidden");
 
+      statusBox.classList.add("active");
       statusLine1.textContent = "Validating operator credentials...";
       statusLine2.textContent = "";
       statusLine3.textContent = "";
 
       setTimeout(function() {
         statusLine2.textContent = "Checking archive access permissions...";
-      }, 700);
+      }, 650);
 
       setTimeout(function() {
         statusLine3.textContent = "Restricted clearance not recognized.";
-      }, 1400);
+      }, 1300);
 
       setTimeout(function() {
         loginStage.classList.add("hidden");
         deniedStage.classList.remove("hidden");
         authenticateBtn.disabled = false;
         authenticateBtn.textContent = "Authenticate";
-      }, 2000);
+      }, 1900);
     });
 
     trackBtn.addEventListener("click", function() {
