@@ -3,23 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Lucid Army // Restricted Access</title>
+  <title>Lucid Army | Office of Anomalous Intelligence</title>
 
   <style>
-    :root {
-      --bg: #08090b;
-      --panel: #111318;
-      --panel-2: #171a21;
-      --text: #e9edf2;
-      --muted: #9ba3af;
-      --line: #343946;
-      --warning: #b91c1c;
-      --warning-bright: #ef4444;
-      --green: #8ef5b5;
-      --gold: #c9a44c;
-    }
-
     * {
       box-sizing: border-box;
     }
@@ -27,381 +13,182 @@
     html, body {
       margin: 0;
       padding: 0;
-      min-height: 100%;
-      background: var(--bg);
-      color: var(--text);
+      background: #f4f6f8;
+      color: #1b1f23;
       font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
       min-height: 100vh;
-      min-height: 100dvh;
-      overflow-x: hidden;
-      background:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
-        radial-gradient(circle at 50% 10%, rgba(255,255,255,0.08), transparent 35%),
-        #08090b;
-      background-size: 36px 36px, 36px 36px, cover, cover;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.025),
-        rgba(255,255,255,0.025) 1px,
-        transparent 1px,
-        transparent 4px
-      );
-      opacity: 0.35;
-      z-index: 1;
+    .topbar {
+      background: #1f2937;
+      color: #ffffff;
+      padding: 10px 16px;
+      font-size: 12px;
+      line-height: 1.4;
+      border-bottom: 3px solid #c7ced6;
     }
 
-    .page {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(9, 10, 13, 0.92);
-      backdrop-filter: blur(8px);
-    }
-
-    .top-strip {
+    .topbar-inner {
+      max-width: 980px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      gap: 14px;
-      padding: 8px 18px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-family: "Courier New", monospace;
-      font-size: 11px;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .site-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 32px;
     }
 
     .agency-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 18px;
-      max-width: 1180px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .agency-title {
-      display: flex;
-      align-items: center;
       gap: 14px;
+      padding: 22px 0 18px;
+      border-bottom: 1px solid #d7dde3;
+      background: #ffffff;
     }
 
-    .seal-mini {
-      width: 46px;
-      height: 46px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      background: #fff;
-      padding: 4px;
+    .agency-seal {
+      width: 62px;
+      height: 62px;
       object-fit: contain;
+      background: #ffffff;
+      border: 1px solid #d7dde3;
+      border-radius: 50%;
+      padding: 4px;
+      flex-shrink: 0;
     }
 
-    .agency-title h1 {
+    .agency-text h1 {
       margin: 0;
-      font-size: clamp(22px, 4vw, 38px);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      line-height: 1;
+      font-size: 28px;
+      color: #111827;
+      line-height: 1.1;
     }
 
-    .agency-title p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-family: "Courier New", monospace;
+    .agency-text p {
+      margin: 5px 0 0;
+      color: #4b5563;
+      font-size: 14px;
+    }
+
+    .page-card {
+      background: #ffffff;
+      border: 1px solid #d7dde3;
+      padding: 22px 18px;
+      margin-top: 18px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      background: #e9eef3;
+      color: #334155;
       font-size: 12px;
-      letter-spacing: 1.4px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
+      border: 1px solid #d7dde3;
     }
 
-    .classification-badge {
-      border: 1px solid var(--warning);
-      color: #fff;
-      background: rgba(185, 28, 28, 0.22);
-      padding: 10px 14px;
-      font-family: "Courier New", monospace;
-      font-size: 12px;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      white-space: nowrap;
+    .page-card h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.2;
+      color: #111827;
     }
 
-    main {
-      flex: 1;
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 34px 18px;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 24px;
-      align-items: center;
+    .page-card p {
+      margin: 0;
+      color: #4b5563;
+      font-size: 15px;
+      line-height: 1.65;
     }
 
-    .identity-panel,
-    .access-panel,
-    .hal-panel {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
-      box-shadow: 0 24px 80px rgba(0,0,0,0.32);
-    }
-
-    .identity-panel {
-      min-height: 570px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .identity-panel::after {
-      content: "RESTRICTED";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%) rotate(-18deg);
-      font-size: clamp(44px, 10vw, 118px);
-      font-weight: 900;
-      letter-spacing: 8px;
-      color: rgba(239, 68, 68, 0.055);
-      border: 6px solid rgba(239, 68, 68, 0.045);
-      padding: 10px 22px;
-      pointer-events: none;
-    }
-
-    .status-row {
+    .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      position: relative;
-      z-index: 1;
+      gap: 16px;
+      margin-top: 18px;
     }
 
-    .status-card {
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(0,0,0,0.22);
-      padding: 12px;
-      font-family: "Courier New", monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      color: var(--muted);
+    .info-box {
+      background: #ffffff;
+      border: 1px solid #d7dde3;
+      padding: 18px;
+      min-height: 170px;
     }
 
-    .status-card strong {
-      display: block;
-      margin-top: 6px;
-      color: var(--green);
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
-
-    .main-seal-wrap {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 28px 0;
-    }
-
-    .main-seal {
-      width: min(78vw, 380px);
-      max-height: 380px;
-      object-fit: contain;
-      background: #fff;
-      border-radius: 50%;
-      padding: 12px;
-      border: 1px solid var(--line);
-      box-shadow: 0 0 0 10px rgba(255,255,255,0.035), 0 30px 90px rgba(0,0,0,0.45);
-    }
-
-    .archive-note {
-      position: relative;
-      z-index: 1;
-      border-left: 3px solid var(--gold);
-      padding: 14px 16px;
-      background: rgba(201, 164, 76, 0.08);
-      color: #d8d1c2;
-      font-family: "Courier New", monospace;
-      font-size: 12px;
-      line-height: 1.5;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-    }
-
-    .right-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .access-panel,
-    .hal-panel {
-      padding: 24px;
-    }
-
-    .panel-label {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 18px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 14px;
-    }
-
-    .panel-label h2 {
-      margin: 0;
+    .info-box h3 {
+      margin: 0 0 10px;
       font-size: 18px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      color: #111827;
     }
 
-    .node-tag {
-      font-family: "Courier New", monospace;
-      font-size: 11px;
-      color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 6px 8px;
-      white-space: nowrap;
-    }
-
-    .helper {
-      margin: 0 0 18px;
-      color: var(--muted);
+    .info-box p {
+      margin: 0;
       font-size: 14px;
-      line-height: 1.5;
+      color: #4b5563;
+      line-height: 1.6;
     }
 
-    label {
-      display: block;
-      margin: 14px 0 7px;
-      color: #cbd5e1;
-      font-family: "Courier New", monospace;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    input {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 0;
-      background: #07080a;
-      color: var(--text);
-      padding: 13px 12px;
-      font-size: 16px;
-      outline: none;
-      font-family: "Courier New", monospace;
-    }
-
-    input:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(201, 164, 76, 0.12);
-    }
-
-    .button-row {
-      display: flex;
-      gap: 10px;
+    .small-note {
       margin-top: 18px;
-    }
-
-    button {
-      border: 1px solid #d6d6d6;
-      background: #e9e9e9;
-      color: #050505;
-      padding: 13px 16px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      cursor: pointer;
+      padding-top: 16px;
+      border-top: 1px solid #e3e8ee;
+      color: #6b7280;
       font-size: 13px;
-      width: 100%;
+      line-height: 1.6;
     }
 
-    button:hover {
-      background: #fff;
+    .doc-trigger-wrap {
+      margin-top: 20px;
+      text-align: left;
     }
 
-    .danger-button {
-      border-color: var(--warning-bright);
-      background: rgba(185, 28, 28, 0.9);
-      color: #fff;
-    }
-
-    .danger-button:hover {
-      background: var(--warning-bright);
-    }
-
-    .terminal {
-      margin-top: 18px;
-      min-height: 116px;
-      border: 1px solid rgba(142, 245, 181, 0.25);
-      background: rgba(0,0,0,0.42);
-      padding: 13px;
-      font-family: "Courier New", monospace;
+    .doc-trigger {
+      display: inline-block;
       font-size: 12px;
-      color: var(--green);
-      line-height: 1.55;
-      overflow: hidden;
+      color: #6b7280;
+      text-decoration: none;
+      border-bottom: 1px dotted #9ca3af;
+      cursor: pointer;
+      user-select: none;
     }
 
-    .terminal-line {
-      opacity: 0.96;
+    .doc-trigger:hover,
+    .doc-trigger:focus {
+      color: #374151;
+      border-bottom-color: #374151;
+      outline: none;
     }
 
-    .hal-result {
-      margin-top: 14px;
-      min-height: 20px;
-      color: var(--warning-bright);
-      font-family: "Courier New", monospace;
+    .footer {
+      margin-top: 22px;
+      padding: 18px 0 0;
+      border-top: 1px solid #d7dde3;
+      color: #6b7280;
       font-size: 12px;
-      letter-spacing: 0.7px;
-      text-transform: uppercase;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 12px 18px;
-      color: var(--muted);
-      font-family: "Courier New", monospace;
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-align: center;
-      background: rgba(0,0,0,0.35);
+      line-height: 1.6;
     }
 
     .modal-overlay {
       position: fixed;
       inset: 0;
+      background: rgba(15, 23, 42, 0.5);
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 22px;
-      background: rgba(0,0,0,0.78);
-      z-index: 50;
+      padding: 16px;
+      z-index: 999;
     }
 
     .modal-overlay.active {
@@ -409,315 +196,437 @@
     }
 
     .modal-box {
-      width: min(94vw, 520px);
-      border: 2px solid var(--warning-bright);
-      background: #101116;
-      box-shadow: 0 25px 100px rgba(0,0,0,0.75);
-      color: var(--text);
-      padding: 0;
+      width: 100%;
+      max-width: 460px;
+      background: #ffffff;
+      border: 1px solid #cfd7df;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
       overflow: hidden;
     }
 
     .modal-header {
-      background: rgba(185, 28, 28, 0.95);
-      color: #fff;
-      padding: 16px 18px;
-      font-family: "Courier New", monospace;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 900;
+      background: #1f2937;
+      color: #ffffff;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
     }
 
-    .modal-content {
-      padding: 22px;
+    .modal-body {
+      padding: 18px 16px 20px;
     }
 
-    .modal-content h3 {
-      margin: 0 0 12px;
-      font-size: 26px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    .modal-body h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      color: #111827;
+      line-height: 1.2;
     }
 
-    .modal-content p {
+    .modal-body p {
       margin: 0 0 16px;
-      color: #d1d5db;
-      line-height: 1.5;
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
-    .modal-log {
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(0,0,0,0.32);
-      padding: 14px;
-      color: var(--green);
-      font-family: "Courier New", monospace;
-      font-size: 12px;
-      line-height: 1.55;
-      margin: 16px 0 20px;
+    .form-label {
+      display: block;
+      margin: 12px 0 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
     }
 
-    .modal-actions {
+    .text-input {
+      width: 100%;
+      padding: 12px 12px;
+      border: 1px solid #cfd7df;
+      font-size: 16px;
+      color: #111827;
+      background: #ffffff;
+      border-radius: 0;
+    }
+
+    .text-input:focus {
+      outline: none;
+      border-color: #64748b;
+      box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.14);
+    }
+
+    .button-row {
       display: flex;
       gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 860px) {
-      .top-strip {
-        flex-direction: column;
-        gap: 4px;
-      }
+    .btn {
+      appearance: none;
+      border: 1px solid #1f2937;
+      background: #1f2937;
+      color: #ffffff;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      min-height: 46px;
+      flex: 1 1 auto;
+    }
 
+    .btn:hover {
+      background: #111827;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #1f2937;
+    }
+
+    .btn-secondary:hover {
+      background: #f8fafc;
+    }
+
+    .status-box {
+      margin-top: 16px;
+      padding: 12px;
+      border: 1px solid #d7dde3;
+      background: #f8fafc;
+      color: #334155;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .status-line {
+      margin: 0 0 6px;
+    }
+
+    .status-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .denied-box {
+      margin-top: 16px;
+      padding: 14px;
+      border: 1px solid #d7dde3;
+      background: #f8fafc;
+    }
+
+    .denied-title {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #991b1b;
+      line-height: 1.2;
+    }
+
+    .denied-text {
+      margin: 0;
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .hal-section {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .hal-section h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: #111827;
+    }
+
+    .hal-result {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #991b1b;
+      line-height: 1.5;
+      min-height: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
       .agency-header {
         align-items: flex-start;
-        flex-direction: column;
       }
 
-      .classification-badge {
-        white-space: normal;
+      .agency-text h1 {
+        font-size: 24px;
       }
 
-      main {
-        grid-template-columns: 1fr;
-        padding-top: 22px;
-      }
-
-      .identity-panel {
-        min-height: auto;
-      }
-
-      .status-row {
+      .grid {
         grid-template-columns: 1fr;
       }
 
-      .main-seal {
-        width: min(70vw, 270px);
+      .page-card h2 {
+        font-size: 22px;
       }
 
-      .button-row,
-      .modal-actions {
+      .modal-box {
+        max-width: 100%;
+      }
+
+      .button-row {
         flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
       }
     }
   </style>
 </head>
-
 <body>
-  <div class="page">
-    <header>
-      <div class="top-strip">
-        <span>PUBLIC ACCESS MIRROR // READ-ONLY NODE</span>
-        <span>ARCHIVE STATUS: SEALED // SIGNAL: ACTIVE</span>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div>Official Government Information Portal</div>
+      <div>Public Access Node</div>
+    </div>
+  </div>
+
+  <div class="site-wrap">
+    <div class="agency-header">
+      <img src="IMG_1890.png" alt="Lucid Army Seal" class="agency-seal" />
+      <div class="agency-text">
+        <h1>Lucid Army</h1>
+        <p>Office of Anomalous Intelligence</p>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="section-kicker">Public Records & Civilian Information Portal</div>
+      <h2>Public Notice</h2>
+      <p>
+        This portal provides limited civilian-facing access to administrative notices,
+        archive status updates, and approved public registry information made available
+        by the Office of Anomalous Intelligence.
+      </p>
+
+      <div class="small-note">
+        Information presented through this interface is provided for general public awareness.
+        Access to sealed records, restricted archives, and operator-only registries requires
+        additional authorization.
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="info-box">
+        <h3>Archive Status</h3>
+        <p>
+          Public archive materials remain limited. Select administrative records and notices
+          may be reviewed through approved public channels as available.
+        </p>
       </div>
 
-      <div class="agency-header">
-        <div class="agency-title">
-          <img class="seal-mini" src="IMG_1890.png" alt="Lucid Army Seal" />
-          <div>
-            <h1>Lucid Army</h1>
-            <p>Office of Anomalous Intelligence</p>
-          </div>
-        </div>
-
-        <div class="classification-badge">
-          Restricted Archive Access
-        </div>
+      <div class="info-box">
+        <h3>Civilian Registry</h3>
+        <p>
+          Civilian-facing registry tools are currently restricted. Certain indexed records
+          may be unavailable pending review, validation, or internal classification status.
+        </p>
       </div>
-    </header>
 
-    <main>
-      <section class="identity-panel">
-        <div class="status-row">
-          <div class="status-card">
-            Clearance
-            <strong>Required</strong>
-          </div>
+      <div class="info-box">
+        <h3>Records Request</h3>
+        <p>
+          Requests for access to protected materials must be submitted through authorized
+          channels and are subject to administrative review and applicable restrictions.
+        </p>
+      </div>
+    </div>
 
-          <div class="status-card">
-            Node
-            <strong>07-A</strong>
-          </div>
+    <div class="page-card">
+      <div class="section-kicker">Administrative Information</div>
+      <h2>Access Conditions</h2>
+      <p>
+        Use of this portal constitutes acknowledgment that public-facing information may be
+        incomplete, revised without notice, or unavailable due to operational and administrative
+        limitations. Unauthorized access to restricted systems is prohibited.
+      </p>
 
-          <div class="status-card">
-            Archive
-            <strong>Locked</strong>
-          </div>
-        </div>
+      <div class="doc-trigger-wrap">
+        <span class="doc-trigger" id="docTrigger">Document ID: LA-OAI-07</span>
+      </div>
 
-        <div class="main-seal-wrap">
-          <img class="main-seal" src="IMG_1890.png" alt="Lucid Army Seal" />
-        </div>
-
-        <div class="archive-note">
-          External interface detected. Civilian access is limited to authentication gateway only.  
-          Unauthorized database entry requests are automatically flagged under Protocol L-7.
-        </div>
-      </section>
-
-      <section class="right-stack">
-        <div class="access-panel">
-          <div class="panel-label">
-            <h2>Database Access Gateway</h2>
-            <span class="node-tag">NODE 07-A</span>
-          </div>
-
-          <p class="helper">
-            Authorized operators may request temporary access to the anomalous records database.
-            Credentials are verified against sealed archive permissions.
-          </p>
-
-          <form id="accessForm">
-            <label for="operatorId">Operator ID</label>
-            <input id="operatorId" type="text" autocomplete="off" placeholder="LA-OP-0000" />
-
-            <label for="accessCipher">Access Cipher</label>
-            <input id="accessCipher" type="password" autocomplete="off" placeholder="••••••••••••" />
-
-            <div class="button-row">
-              <button class="danger-button" type="submit" id="authButton">
-                Authenticate Access
-              </button>
-            </div>
-          </form>
-
-          <div class="terminal" id="terminal">
-            <div class="terminal-line">> Gateway initialized.</div>
-            <div class="terminal-line">> Awaiting operator credentials...</div>
-          </div>
-        </div>
-
-        <div class="hal-panel">
-          <div class="panel-label">
-            <h2>H.A.L. Registry Tracker</h2>
-            <span class="node-tag">LIMITED QUERY</span>
-          </div>
-
-          <p class="helper">
-            Enter H.A.L. Number to request location status from the restricted registry.
-          </p>
-
-          <label for="halNumber">Enter H.A.L. Number</label>
-          <input id="halNumber" type="text" inputmode="numeric" autocomplete="off" placeholder="000-000-000" />
-
-          <div class="button-row">
-            <button type="button" id="trackButton">
-              Track
-            </button>
-          </div>
-
-          <div class="hal-result" id="halResult"></div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      Lucid Army // Office of Anomalous Intelligence // External Mirror Interface
-    </footer>
+      <div class="footer">
+        Office of Anomalous Intelligence<br>
+        External Information Interface // Public Access Mirror
+      </div>
+    </div>
   </div>
 
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-box">
-      <div class="modal-header">
-        System Alert // Unauthorized Login Attempt
-      </div>
+      <div class="modal-header">Restricted Access Gateway</div>
 
-      <div class="modal-content">
-        <h3>Access Denied</h3>
+      <div class="modal-body">
+        <div id="loginStage">
+          <h3>Operator Authentication</h3>
+          <p>
+            Authorized operators may request access to restricted archive systems using
+            validated credentials.
+          </p>
 
-        <p>
-          Civilian clearance level insufficient. Database access request has been rejected by the sealed archive gateway.
-        </p>
+          <label class="form-label" for="operatorId">Operator ID</label>
+          <input class="text-input" id="operatorId" type="text" autocomplete="off" placeholder="Enter Operator ID" />
 
-        <div class="modal-log">
-          > Unauthorized login attempt detected.<br>
-          > Session flagged under Protocol L-7.<br>
-          > Trace ID: LA-4829-QX<br>
-          > Further attempts may be archived.
+          <label class="form-label" for="accessCode">Access Code</label>
+          <input class="text-input" id="accessCode" type="password" autocomplete="off" placeholder="Enter Access Code" />
+
+          <div class="button-row">
+            <button class="btn" id="authenticateBtn" type="button">Authenticate</button>
+            <button class="btn btn-secondary" id="closeModalBtn" type="button">Close</button>
+          </div>
+
+          <div class="status-box hidden" id="statusBox">
+            <div class="status-line" id="statusLine1"></div>
+            <div class="status-line" id="statusLine2"></div>
+            <div class="status-line" id="statusLine3"></div>
+          </div>
         </div>
 
-        <div class="modal-actions">
-          <button class="danger-button" type="button" id="disconnectButton">
-            Disconnect
-          </button>
+        <div id="deniedStage" class="hidden">
+          <h3>Restricted Access Gateway</h3>
+
+          <div class="denied-box">
+            <h4 class="denied-title">Unauthorized Login Attempt</h4>
+            <p class="denied-text">
+              Access denied. Credentials rejected by archive gateway.<br>
+              Incident Ref: OAI-7C-4829<br>
+              Session closed.
+            </p>
+          </div>
+
+          <div class="hal-section">
+            <h4>H.A.L. Registry Lookup</h4>
+            <p>
+              Enter H.A.L. Number to request restricted registry validation.
+            </p>
+
+            <label class="form-label" for="halNumber">Enter H.A.L. Number</label>
+            <input class="text-input" id="halNumber" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter H.A.L. Number" />
+
+            <div class="button-row">
+              <button class="btn" id="trackBtn" type="button">Track</button>
+              <button class="btn btn-secondary" id="disconnectBtn" type="button">Disconnect</button>
+            </div>
+
+            <div class="hal-result" id="halResult"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    const accessForm = document.getElementById("accessForm");
-    const authButton = document.getElementById("authButton");
-    const terminal = document.getElementById("terminal");
+    const docTrigger = document.getElementById("docTrigger");
     const modalOverlay = document.getElementById("modalOverlay");
-    const disconnectButton = document.getElementById("disconnectButton");
-    const trackButton = document.getElementById("trackButton");
-    const halNumber = document.getElementById("halNumber");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const disconnectBtn = document.getElementById("disconnectBtn");
+    const authenticateBtn = document.getElementById("authenticateBtn");
+
+    const loginStage = document.getElementById("loginStage");
+    const deniedStage = document.getElementById("deniedStage");
+
+    const statusBox = document.getElementById("statusBox");
+    const statusLine1 = document.getElementById("statusLine1");
+    const statusLine2 = document.getElementById("statusLine2");
+    const statusLine3 = document.getElementById("statusLine3");
+
+    const trackBtn = document.getElementById("trackBtn");
     const halResult = document.getElementById("halResult");
+    const halNumber = document.getElementById("halNumber");
 
-    const terminalSteps = [
-      "> Validating clearance token...",
-      "> Checking anomaly archive permissions...",
-      "> Cross-referencing operator registry...",
-      "> Civilian access pattern detected...",
-      "> Request denied."
-    ];
-
-    function addTerminalLine(text) {
-      const line = document.createElement("div");
-      line.className = "terminal-line";
-      line.textContent = text;
-      terminal.appendChild(line);
-      terminal.scrollTop = terminal.scrollHeight;
+    function openModal() {
+      modalOverlay.classList.add("active");
+      resetModal();
     }
 
-    accessForm.addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      authButton.disabled = true;
-      authButton.textContent = "Verifying...";
-      terminal.innerHTML = "";
-
-      terminalSteps.forEach(function(step, index) {
-        setTimeout(function() {
-          addTerminalLine(step);
-        }, 450 * index);
-      });
-
-      setTimeout(function() {
-        modalOverlay.classList.add("active");
-        authButton.disabled = false;
-        authButton.textContent = "Authenticate Access";
-      }, 2600);
-    });
-
-    disconnectButton.addEventListener("click", function() {
+    function closeModal() {
       modalOverlay.classList.remove("active");
-    });
+    }
+
+    function resetModal() {
+      loginStage.classList.remove("hidden");
+      deniedStage.classList.add("hidden");
+      statusBox.classList.add("hidden");
+      statusLine1.textContent = "";
+      statusLine2.textContent = "";
+      statusLine3.textContent = "";
+      halResult.textContent = "";
+      document.getElementById("operatorId").value = "";
+      document.getElementById("accessCode").value = "";
+      if (halNumber) {
+        halNumber.value = "";
+      }
+      authenticateBtn.disabled = false;
+      authenticateBtn.textContent = "Authenticate";
+    }
+
+    docTrigger.addEventListener("click", openModal);
+
+    closeModalBtn.addEventListener("click", closeModal);
+
+    if (disconnectBtn) {
+      disconnectBtn.addEventListener("click", closeModal);
+    }
 
     modalOverlay.addEventListener("click", function(event) {
       if (event.target === modalOverlay) {
-        modalOverlay.classList.remove("active");
+        closeModal();
       }
     });
 
     document.addEventListener("keydown", function(event) {
       if (event.key === "Escape") {
-        modalOverlay.classList.remove("active");
+        closeModal();
       }
     });
 
-    trackButton.addEventListener("click", function() {
+    authenticateBtn.addEventListener("click", function() {
+      authenticateBtn.disabled = true;
+      authenticateBtn.textContent = "Authenticating...";
+      statusBox.classList.remove("hidden");
+
+      statusLine1.textContent = "Validating operator credentials...";
+      statusLine2.textContent = "";
+      statusLine3.textContent = "";
+
+      setTimeout(function() {
+        statusLine2.textContent = "Checking archive access permissions...";
+      }, 700);
+
+      setTimeout(function() {
+        statusLine3.textContent = "Restricted clearance not recognized.";
+      }, 1400);
+
+      setTimeout(function() {
+        loginStage.classList.add("hidden");
+        deniedStage.classList.remove("hidden");
+        authenticateBtn.disabled = false;
+        authenticateBtn.textContent = "Authenticate";
+      }, 2000);
+    });
+
+    trackBtn.addEventListener("click", function() {
       const value = halNumber.value.trim();
 
       if (!value) {
-        halResult.textContent = "H.A.L. query rejected: no registry number entered.";
+        halResult.textContent = "Invalid H.A.L. Number.";
         return;
       }
 
-      halResult.textContent = "Scanning restricted registry...";
+      halResult.textContent = "Querying registry...";
 
       setTimeout(function() {
-        halResult.textContent = "Invalid H.A.L. Number. Registry match not found.";
-      }, 900);
+        halResult.textContent = "Invalid H.A.L. Number. Registry access requires elevated clearance.";
+      }, 800);
     });
   </script>
 </body>
