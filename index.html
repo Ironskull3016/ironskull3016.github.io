@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Lucid Army | Office of Anomalous Intelligence</title>
+  <title>Lucid Army | Public Interface</title>
 
   <style>
     :root {
       --navy: #172a45;
       --navy-dark: #102136;
       --gray-900: #1d252d;
+      --gray-800: #2d3741;
       --gray-700: #44515d;
       --gray-600: #5d6975;
       --gray-300: #c8ced4;
@@ -18,7 +19,7 @@
       --gray-100: #f3f5f7;
       --paper: #fbfbfa;
       --white: #ffffff;
-      --warning: #7a4d00;
+      --warning: #725000;
       --warning-bg: #fff8e8;
       --link: #174a7c;
       --border: #c9d1d8;
@@ -75,7 +76,7 @@
     }
 
     .header-inner {
-      max-width: 1080px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 22px 14px;
       display: flex;
@@ -107,68 +108,17 @@
       font-size: 0.95rem;
     }
 
-    .utility-bar {
-      background: #e9edf1;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .utility-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 10px 14px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .search-form {
-      display: flex;
-      gap: 8px;
-    }
-
-    .search-form input {
-      width: 100%;
-      padding: 10px 11px;
-      border: 1px solid #aeb8c2;
-      background: var(--white);
-      color: var(--gray-900);
-      border-radius: 2px;
-    }
-
-    .search-form button,
-    .plain-button {
-      border: 1px solid #758395;
-      background: #f5f7f9;
-      color: var(--gray-900);
-      padding: 10px 12px;
-      border-radius: 2px;
-      cursor: pointer;
-    }
-
-    .search-form button:hover,
-    .plain-button:hover {
-      background: #e8edf2;
-    }
-
-    .search-note {
-      display: none;
-      font-size: 0.88rem;
-      color: var(--gray-700);
-      border-left: 3px solid #8a97a6;
-      padding-left: 8px;
-    }
-
     .nav-wrap {
       background: #f7f8fa;
       border-bottom: 1px solid var(--border);
     }
 
     .nav-inner {
-      max-width: 1080px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 0 14px;
       display: flex;
       flex-wrap: wrap;
-      gap: 0;
     }
 
     .nav-inner a {
@@ -189,23 +139,29 @@
     }
 
     main {
-      max-width: 1080px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 18px 14px 34px;
     }
 
-    .layout {
+    .intro-grid {
       display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 18px;
-      align-items: start;
+      grid-template-columns: 1fr 290px;
+      gap: 16px;
+      align-items: stretch;
+      margin-bottom: 16px;
+    }
+
+    .page-title,
+    .login-panel,
+    .section,
+    .metadata {
+      background: var(--white);
+      border: 1px solid var(--border);
     }
 
     .page-title {
-      background: var(--white);
-      border: 1px solid var(--border);
       padding: 16px;
-      margin-bottom: 16px;
     }
 
     .page-title h2 {
@@ -218,7 +174,42 @@
     .page-title p {
       margin: 0;
       color: var(--gray-700);
-      max-width: 760px;
+      max-width: 720px;
+    }
+
+    .login-panel {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .login-panel h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--gray-900);
+    }
+
+    .login-panel p {
+      margin: 0;
+      color: var(--gray-700);
+      font-size: 0.92rem;
+    }
+
+    .login-button {
+      width: 100%;
+      border: 1px solid var(--navy);
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 12px;
+      border-radius: 2px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .login-button:hover {
+      background: #213c60;
     }
 
     .notice {
@@ -234,8 +225,6 @@
     }
 
     .section {
-      background: var(--white);
-      border: 1px solid var(--border);
       margin-bottom: 16px;
     }
 
@@ -263,12 +252,12 @@
       margin-bottom: 0;
     }
 
-    .basic-list {
+    .plain-list {
       margin: 0;
       padding-left: 18px;
     }
 
-    .basic-list li {
+    .plain-list li {
       margin: 7px 0;
     }
 
@@ -293,13 +282,13 @@
     }
 
     .records-table td:first-child {
-      white-space: nowrap;
       color: var(--gray-700);
+      width: 34%;
     }
 
     .status-row {
       display: grid;
-      grid-template-columns: 160px 1fr;
+      grid-template-columns: 180px 1fr;
       border-top: 1px solid var(--border);
       min-height: 40px;
     }
@@ -320,38 +309,7 @@
       padding: 9px 10px;
     }
 
-    .aside-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      margin-bottom: 16px;
-    }
-
-    .aside-box h3 {
-      margin: 0;
-      padding: 11px 12px;
-      font-size: 1rem;
-      background: #f0f3f6;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .aside-box div {
-      padding: 12px;
-      font-size: 0.92rem;
-      color: var(--gray-700);
-    }
-
-    .aside-box ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    .aside-box li {
-      margin: 7px 0;
-    }
-
     .metadata {
-      background: var(--white);
-      border: 1px solid var(--border);
       margin-top: 18px;
     }
 
@@ -363,13 +321,9 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .metadata-grid {
-      display: grid;
-    }
-
     .meta-row {
       display: grid;
-      grid-template-columns: 230px 1fr;
+      grid-template-columns: 220px 1fr;
       border-top: 1px solid var(--border);
     }
 
@@ -419,7 +373,7 @@
     }
 
     .footer-inner {
-      max-width: 1080px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 18px 14px 26px;
       font-size: 0.9rem;
@@ -619,16 +573,6 @@
       font-size: 0.82rem;
     }
 
-    .hidden {
-      display: none !important;
-    }
-
-    mark.search-hit {
-      background: #fff1a8;
-      color: inherit;
-      padding: 0 2px;
-    }
-
     @media (max-width: 760px) {
       body {
         font-size: 15px;
@@ -652,11 +596,6 @@
         font-size: 0.88rem;
       }
 
-      .search-form {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
       .nav-inner {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -673,7 +612,7 @@
         padding: 14px 10px 28px;
       }
 
-      .layout {
+      .intro-grid {
         grid-template-columns: 1fr;
       }
 
@@ -697,10 +636,6 @@
         padding: 8px 7px;
       }
 
-      .records-table td:first-child {
-        white-space: normal;
-      }
-
       .modal {
         max-height: 92vh;
         overflow: auto;
@@ -717,232 +652,208 @@
       <img class="seal" src="IMG_1890.png" alt="Lucid Army seal" />
       <div class="header-text">
         <h1>Lucid Army</h1>
-        <p>Public Information Portal</p>
+        <p>Public Interface</p>
       </div>
     </div>
   </header>
 
-  <section class="utility-bar" aria-label="Search and utility area">
-    <div class="utility-inner">
-      <form class="search-form" id="siteSearch" autocomplete="off">
-        <input
-          id="searchInput"
-          type="search"
-          placeholder="Search public records notices"
-          aria-label="Search public records notices"
-        />
-        <button type="submit">Search</button>
-      </form>
-      <div class="search-note" id="searchNote" role="status" aria-live="polite"></div>
-    </div>
-  </section>
-
   <nav class="nav-wrap" aria-label="Primary navigation">
     <div class="nav-inner">
+      <a href="#overview">Overview</a>
       <a href="#notices">Notices</a>
-      <a href="#records">Records Access</a>
+      <a href="#access">Access</a>
       <a href="#status">Status</a>
       <a href="#reference">Reference</a>
-      <a href="#metadata">Page Data</a>
+      <a href="#page-data">Page Data</a>
     </div>
   </nav>
 
   <main id="main-content">
-    <div class="page-title">
-      <h2>Public Records and Administrative Information</h2>
-      <p>
-        This page provides limited public-facing information related to administrative records,
-        review schedules, document availability, and office routing procedures.
-      </p>
+    <div class="intro-grid">
+      <section class="page-title" id="overview">
+        <h2>Public Information</h2>
+        <p>
+          This interface provides limited public reference material related to Lucid Army records,
+          access status, and administrative notices. Most indexed material is not available through
+          the public page.
+        </p>
+      </section>
+
+      <section class="login-panel" aria-label="Authorized login">
+        <div>
+          <h3>Authorized Access</h3>
+          <p>
+            Approved users may continue through the access gateway.
+          </p>
+        </div>
+
+        <button class="login-button open-gateway" type="button">
+          Authorized Login
+        </button>
+      </section>
     </div>
 
     <div class="notice" id="notices">
-      <strong>7/18/2021 Notice:</strong>
-      Public records access remains limited while archived index materials undergo scheduled
-      administrative review. Requests requiring restricted archive routing cannot be processed
-      through this public interface.
+      <strong>07/18/2021 Notice:</strong>
+      Public reference access remains limited. Internal records, registry information,
+      and review materials are not available through this interface.
     </div>
 
-    <div class="layout">
-      <div>
-        <section class="section searchable" id="records">
-          <div class="section-header">
-            <h3>Records Access</h3>
-          </div>
-          <div class="section-body">
-            <p>
-              The Office of Anomalous Intelligence maintains a public index of selected
-              administrative summaries, status notices, and non-sensitive routing references.
-              Certain materials may be delayed, redacted, or withheld from the public interface
-              when review status is incomplete.
-            </p>
-
-            <table class="records-table" aria-label="Records access table">
-              <thead>
-                <tr>
-                  <th scope="col">Record Type</th>
-                  <th scope="col">Public Availability</th>
-                  <th scope="col">Current Handling</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Administrative notices</td>
-                  <td>Partial</td>
-                  <td>Published after routine review</td>
-                </tr>
-                <tr>
-                  <td>Archive index entries</td>
-                  <td>Limited</td>
-                  <td>Subject to review cycle and routing status</td>
-                </tr>
-                <tr>
-                  <td>Operational references</td>
-                  <td>Unavailable</td>
-                  <td>Not accessible through public records portal</td>
-                </tr>
-                <tr>
-                  <td>Registry lookups</td>
-                  <td>Unavailable</td>
-                  <td>Requires internal authorization level</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="section searchable">
-          <div class="section-header">
-            <h3>Recent Administrative Notices</h3>
-          </div>
-          <div class="section-body">
-            <table class="records-table" aria-label="Recent administrative notices">
-              <thead>
-                <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">Notice</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>7/18/2021</td>
-                  <td>Public records access remains limited during archive review.</td>
-                  <td>Active</td>
-                </tr>
-                <tr>
-                  <td>04/2026</td>
-                  <td>Legacy document index migrated to revised public routing format.</td>
-                  <td>Completed</td>
-                </tr>
-                <tr>
-                  <td>02/2026</td>
-                  <td>Registry request forms removed from public interface pending review.</td>
-                  <td>Closed</td>
-                </tr>
-                <tr>
-                  <td>11/2025</td>
-                  <td>External correspondence queue consolidated under Records Desk intake.</td>
-                  <td>Archived</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="section searchable" id="status">
-          <div class="section-header">
-            <h3>Current Interface Status</h3>
-          </div>
-          <div class="section-body">
-            <div class="status-row">
-              <div class="status-label">Portal</div>
-              <div class="status-value">Public information portal online</div>
-            </div>
-            <div class="status-row">
-              <div class="status-label">Records Index</div>
-              <div class="status-value">Limited public access</div>
-            </div>
-            <div class="status-row">
-              <div class="status-label">Archive Gateway</div>
-              <div class="status-value">Restricted</div>
-            </div>
-            <div class="status-row">
-              <div class="status-label">Registry Access</div>
-              <div class="status-value">Unavailable through public interface</div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section searchable" id="reference">
-          <div class="section-header">
-            <h3>Reference Information</h3>
-          </div>
-          <div class="section-body">
-            <p>
-              Public reference materials are limited to administrative summaries and general
-              routing information. Materials not listed on this page should not be assumed
-              available through the public records interface.
-            </p>
-
-            <ul class="basic-list">
-              <li>Public summaries are reviewed before posting.</li>
-              <li>Archive index entries may be delayed during standard review cycles.</li>
-              <li>Registry requests are not handled by the public portal.</li>
-              <li>Access codes, operator credentials, and internal routing keys are not issued publicly.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="metadata" id="metadata" aria-label="Page metadata">
-          <h3>Page Metadata</h3>
-          <div class="metadata-grid">
-            <div class="meta-row">
-              <div class="meta-label">Review cycle</div>
-              <div class="meta-value">Standard administrative review</div>
-            </div>
-            <div class="meta-row">
-              <div class="meta-label">Public access classification</div>
-              <div class="meta-value">Limited</div>
-            </div>
-            <div class="meta-row">
-              <div class="meta-label">Last reviewed</div>
-              <div class="meta-value">06/2026</div>
-            </div>
-            <div class="meta-row">
-              <div class="meta-label">Page ID</div>
-              <div class="meta-value">
-                <button class="page-id-button" id="openGateway" type="button">LA-OAI-07</button>
-              </div>
-            </div>
-          </div>
-        </section>
+    <section class="section" id="access">
+      <div class="section-header">
+        <h3>Access Information</h3>
       </div>
 
-      <aside aria-label="Supplemental information">
-        <section class="aside-box searchable">
-          <h3>Request Limitations</h3>
-          <div>
-            <ul>
-              <li>No registry validation</li>
-              <li>No personnel verification</li>
-              <li>No archive gateway access</li>
-              <li>No case-specific routing</li>
-            </ul>
-          </div>
-        </section>
+      <div class="section-body">
+        <p>
+          Lucid Army maintains a limited public index for general orientation only. The public
+          interface does not provide access to internal files, validation tools, personnel records,
+          or registry materials.
+        </p>
 
-        <section class="aside-box searchable">
-          <h3>Document Handling</h3>
-          <div>
-            <p>
-              Documents marked limited, pending, restricted, or unavailable are not released
-              through the public-facing records interface.
-            </p>
-          </div>
-        </section>
-      </aside>
-    </div>
+        <table class="records-table" aria-label="Access information table">
+          <thead>
+            <tr>
+              <th scope="col">Area</th>
+              <th scope="col">Public Status</th>
+              <th scope="col">Handling</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Public reference</td>
+              <td>Available</td>
+              <td>General information only</td>
+            </tr>
+            <tr>
+              <td>Index materials</td>
+              <td>Limited</td>
+              <td>Reviewed before release</td>
+            </tr>
+            <tr>
+              <td>Registry information</td>
+              <td>Unavailable</td>
+              <td>Authorized access required</td>
+            </tr>
+            <tr>
+              <td>Internal review files</td>
+              <td>Unavailable</td>
+              <td>Not provided through this interface</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h3>Administrative Notices</h3>
+      </div>
+
+      <div class="section-body">
+        <table class="records-table" aria-label="Administrative notices">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Notice</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>07/18/2021</td>
+              <td>Public interface access limited to general reference materials.</td>
+              <td>Active</td>
+            </tr>
+            <tr>
+              <td>03/04/2021</td>
+              <td>Registry materials removed from public index pending review.</td>
+              <td>Closed</td>
+            </tr>
+            <tr>
+              <td>11/12/2020</td>
+              <td>Access gateway routing revised for approved users.</td>
+              <td>Closed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="status">
+      <div class="section-header">
+        <h3>Current Interface Status</h3>
+      </div>
+
+      <div class="section-body">
+        <div class="status-row">
+          <div class="status-label">Public Interface</div>
+          <div class="status-value">Online for general reference</div>
+        </div>
+
+        <div class="status-row">
+          <div class="status-label">Public Index</div>
+          <div class="status-value">Limited access</div>
+        </div>
+
+        <div class="status-row">
+          <div class="status-label">Access Gateway</div>
+          <div class="status-value">Authorized users only</div>
+        </div>
+
+        <div class="status-row">
+          <div class="status-label">Registry Lookup</div>
+          <div class="status-value">Unavailable through public interface</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reference">
+      <div class="section-header">
+        <h3>Reference Scope</h3>
+      </div>
+
+      <div class="section-body">
+        <p>
+          Public-facing information is limited by review status, access level, and document
+          handling category. Materials concerning internal evaluation, perception records,
+          consciousness studies, and reality assessment are not released through this page.
+        </p>
+
+        <ul class="plain-list">
+          <li>Public summaries may be revised or removed without notice.</li>
+          <li>Registry requests are not processed through the public interface.</li>
+          <li>Access credentials are not issued from this page.</li>
+          <li>Unavailable material should not be assumed approved for public release.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="metadata" id="page-data" aria-label="Page metadata">
+      <h3>Page Data</h3>
+
+      <div class="meta-row">
+        <div class="meta-label">Review cycle</div>
+        <div class="meta-value">Administrative review</div>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-label">Public access level</div>
+        <div class="meta-value">Limited</div>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-label">Last reviewed</div>
+        <div class="meta-value">07/18/2021</div>
+      </div>
+
+      <div class="meta-row">
+        <div class="meta-label">Page reference</div>
+        <div class="meta-value">
+          <button class="page-id-button open-gateway" type="button">LA-RG-07</button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -956,7 +867,7 @@
       </div>
 
       <p class="footer-note">
-        Lucid Army &mdash; Office of Anomalous Intelligence. Public records interface.
+        Lucid Army. Public interface.
       </p>
 
       <div class="inline-alert" id="footerNotice" role="status" aria-live="polite">
@@ -1016,7 +927,7 @@
 
           <div class="denied-message">
             Access denied. Credentials rejected by archive gateway.<br />
-            Incident Ref: OAI-7C-4829<br />
+            Incident Ref: LA-7C-4829<br />
             Session closed.
           </div>
 
@@ -1057,7 +968,7 @@
     (function () {
       "use strict";
 
-      var openGatewayButton = document.getElementById("openGateway");
+      var gatewayButtons = document.querySelectorAll(".open-gateway");
       var modal = document.getElementById("gatewayModal");
       var modalX = document.getElementById("modalX");
       var closeAuth = document.getElementById("closeAuth");
@@ -1073,11 +984,9 @@
       var halNumber = document.getElementById("halNumber");
       var footerNotice = document.getElementById("footerNotice");
       var fakeResources = document.querySelectorAll(".fake-resource");
-      var searchForm = document.getElementById("siteSearch");
-      var searchInput = document.getElementById("searchInput");
-      var searchNote = document.getElementById("searchNote");
 
       var verificationTimers = [];
+      var lastTrigger = null;
 
       function clearVerificationTimers() {
         verificationTimers.forEach(function (timer) {
@@ -1100,7 +1009,11 @@
         halNumber.value = "";
       }
 
-      function openModal() {
+      function openModal(event) {
+        if (event && event.currentTarget) {
+          lastTrigger = event.currentTarget;
+        }
+
         resetGateway();
         modal.classList.add("is-open");
         document.body.style.overflow = "hidden";
@@ -1114,7 +1027,10 @@
         clearVerificationTimers();
         modal.classList.remove("is-open");
         document.body.style.overflow = "";
-        openGatewayButton.focus();
+
+        if (lastTrigger) {
+          lastTrigger.focus();
+        }
       }
 
       function showDeniedPanel() {
@@ -1143,7 +1059,10 @@
         }, 1950));
       }
 
-      openGatewayButton.addEventListener("click", openModal);
+      gatewayButtons.forEach(function (button) {
+        button.addEventListener("click", openModal);
+      });
+
       modalX.addEventListener("click", closeModal);
       closeAuth.addEventListener("click", closeModal);
       disconnect.addEventListener("click", closeModal);
@@ -1198,63 +1117,6 @@
             footerNotice.style.display = "none";
           }, 3200);
         });
-      });
-
-      function removeSearchMarks() {
-        document.querySelectorAll("mark.search-hit").forEach(function (mark) {
-          var parent = mark.parentNode;
-          parent.replaceChild(document.createTextNode(mark.textContent), mark);
-          parent.normalize();
-        });
-      }
-
-      function markFirstMatch(query) {
-        var sections = document.querySelectorAll(".searchable");
-        var lowerQuery = query.toLowerCase();
-        var matchCount = 0;
-        var firstMatch = null;
-
-        sections.forEach(function (section) {
-          var text = section.textContent.toLowerCase();
-
-          if (text.indexOf(lowerQuery) !== -1) {
-            matchCount += 1;
-
-            if (!firstMatch) {
-              firstMatch = section;
-            }
-          }
-        });
-
-        if (firstMatch) {
-          firstMatch.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-
-        return matchCount;
-      }
-
-      searchForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        var query = searchInput.value.trim();
-        removeSearchMarks();
-
-        if (!query) {
-          searchNote.style.display = "block";
-          searchNote.textContent = "Enter a search term to search public notices on this page.";
-          return;
-        }
-
-        var count = markFirstMatch(query);
-        searchNote.style.display = "block";
-
-        if (count === 0) {
-          searchNote.textContent = "No public records notices matched: " + query;
-        } else if (count === 1) {
-          searchNote.textContent = "1 section matched: " + query;
-        } else {
-          searchNote.textContent = count + " sections matched: " + query;
-        }
       });
     })();
   </script>
